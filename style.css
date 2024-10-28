@@ -1,0 +1,154 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgb(0, 0, 0);
+}
+
+body {
+    display: flex;
+    background-color: rgb(92, 92, 92);
+    width: 100svw;
+    height: 100svh;
+    padding: 3rem 0;
+    align-content: center;
+    justify-content: center;
+}
+
+.container {
+    max-width: fit-content;
+    max-height: fit-content;
+    margin: 20px 20px;
+    padding: 20px;
+    align-items: center;
+    background-color: rgb(190, 190, 190);
+    border-radius: 8px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.322);
+}
+
+h1 {
+    text-align: center;
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background: rgb(0, 0, 0);
+    margin: 20px 0;
+}
+
+form {
+    display: grid;
+    gap: 15px;
+}
+
+.form-group, .a {
+    display: flex;
+    align-items: left;
+    gap: 10px;
+}
+
+label {
+    width: 110px;
+    font-weight: bold;
+    margin-right: 50px;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="number"],
+select,
+input[type="file"] {
+    flex: 4;
+    padding: 8px;
+    border: 1px solid black;
+    border-radius: 4px;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+.checkbox-group {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+}
+
+button, a {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    background-color: #007bff;
+    cursor: pointer;
+    font-size: 16px;
+    margin-right: 10px;
+    text-decoration: none;
+}
+
+button:hover, a:hover{
+    background-color: #0056b3;
+}
+
+.button {
+    text-align: right;
+}
+
+input[type="file"] {
+    padding: 0;
+}
+
+select {
+    padding: 8px;
+}
+
+table {
+    border-collapse: collapse;
+    margin: 10px auto;
+    background-color: white;
+    box-shadow: 0 2px 8px black;
+    table-layout: fixed;
+}
+
+th, td {
+    padding: 20px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    text-align: center;
+    text-wrap: nowrap;
+    border: 1px solid black;
+}
+
+th {
+    background-color: #006483;
+    color: white;
+}
+
+td{
+    width: 50px;
+    height: 50px;
+}
+
+img {
+    max-width: 50px;
+}
+
+/* @media (max-width: 600px) {
+    .container {
+        width: 95%;
+        padding: 10px;
+    }
+
+    button {
+        display: block;
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .button {
+        text-align: left;
+    }
+} */
