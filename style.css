@@ -7,7 +7,6 @@
 }
 
 body {
-    display: flex;
     background-color: rgb(92, 92, 92);
     width: 100svw;
     height: 100svh;
@@ -19,7 +18,8 @@ body {
 .container {
     max-width: fit-content;
     max-height: fit-content;
-    margin: 20px 20px;
+    margin: auto auto;
+    margin-bottom: 20px;
     padding: 20px;
     align-items: center;
     background-color: rgb(190, 190, 190);
@@ -129,13 +129,9 @@ th {
 }
 
 td{
-    text-wrap: wrap;
+    text-wrap: nowrap;
     width: 50px;
     height: 50px;
-}
-
-.aksi{
-    text-wrap: nowrap;
 }
 
 img {

@@ -20,11 +20,11 @@
     <?php
     if(isset($_GET['ubah'])){
     ?>
-        <h1>EDIT DATA SISWA</h1>
+        <h1>Edit Data Siswa</h1>
     <?php
     } else {
     ?>
-        <h1>TAMBAH DATA SISWA</h1>
+        <h1>Tambah Data Siswa</h1>
     <?php
     }
     ?>
@@ -39,18 +39,18 @@
                 <input type="text" name="nama" id="nama">
             </div>
             <div class="form-group">
-                <label for="jenis-kelamin">Jenis Kelamin</label>
+                <label for="jenis-kelamin" >Jenis Kelamin</label>
                 <div class="radio-group">
-                    <input type="radio" name="jenis-kelamin" id="laki-laki">
+                    <input type="radio" name="jeniskelamin" value="Laki-Laki" id="laki-laki">
                     <label for="laki-laki">Laki-Laki</label>
-                    <input type="radio" name="jenis-kelamin" id="perempuan">
+                    <input type="radio" name="jeniskelamin" value="Perempuan" id="perempuan">
                     <label for="perempuan">Perempuan</label>
                 </div>
             </div>
             <div class="form-group">
                 <label for="jurusan">Jurusan</label>
                 <select name="jurusan" id="jurusan">
-                    <option value="TJKT">-</option>
+                    <option value="TJKT" disabled selected>-</option>
                     <option value="TJKT">TJKT</option>
                     <option value="DKV">DKV</option>
                     <option value="PPLG">PPLG</option>
@@ -108,6 +108,8 @@
     </div>
 
     <div class="container">
+        <h1>Daftar Siswa</h1>
+        <hr>
         <table>
             <tr>
                 <th>No</th>
@@ -150,7 +152,7 @@
                     </td>
                     <td class="aksi">
                         <a href="index.php?ubah=<?php echo $result['id']; ?>" type="button" >Edit</a>
-                        <a href="proses.php?hapus=<?php echo $result['id']; ?>" style="background-color: red;">hapus</a>
+                        <a href="proses.php?hapus=<?php echo $result['id']; ?>" onclick="return confirm('apakah anda yakin ingin menghapus data??')" style="background-color: red;">hapus</a>
                     </td>                
                 </tr>
             <?php
