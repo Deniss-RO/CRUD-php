@@ -1,7 +1,11 @@
 <?php
+    include 'koneksi.php';
+
+    $query = "SELECT * FROM siswa;";
+    $sql = mysqli_query($conn, $query);
+    $no = 0;
 
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -65,19 +69,19 @@
                 <label for="kemampuan">Kemampuan</label>
                 <div class="checkbox-group">
                     <div>
-                        <input type="checkbox" name="Kemampuan" id="pemrograman">
+                        <input type="checkbox" name="Kemampuan" value="Pemrograman" id="pemrograman">
                         <label for="pemrograman">Pemrograman</label>
                     </div>
                     <div>
-                        <input type="checkbox" name="Kemampuan" id="jaringan">
+                        <input type="checkbox" name="Kemampuan" value="Jaringan" id="jaringan">
                         <label for="jaringan">Jaringan</label>
                     </div>
                     <div>
-                        <input type="checkbox" name="Kemampuan" id="desain">
+                        <input type="checkbox" name="Kemampuan" value="Desain" id="desain">
                         <label for="desain">Desain</label>
                     </div>
                     <div>
-                        <input type="checkbox" name="Kemampuan" id="editing-video">
+                        <input type="checkbox" name="Kemampuan" value="Editing Video" id="editing-video">
                         <label for="editing-video">Editing Video</label>
                     </div>
                 </div>
@@ -116,22 +120,42 @@
                 <th>Foto</th>
                 <th>Aksi</th>
             </tr>
-            <tr>
-                <td>No</td>
-                <td>NIS</td>
-                <td>Nama</td>
-                <td>Jenis Kelamin</td>
-                <td>Jurusan</td>
-                <td>Kelas</td>
-                <td>Kemampuan</td>
-                <td>
-                    <img src="wallpaperflare.com_wallpaper (3).jpg" alt="">
-                </td>
-                <td>
-                    <a href="index.php?ubah=1" type="button" >Edit</a>
-                    <a href="proses.php?hapus=1" style="background-color: red;">hapus</a>
-                </td>                
-            </tr>
+            <?php
+                while($result = mysqli_fetch_assoc($sql)){
+            ?>
+                <tr>
+                    <td>
+                        <?php echo ++$no ?>.
+                    </td>
+                    <td>
+                    <?php echo $result['NIS']; ?>
+                    </td>
+                    <td>
+                    <?php echo $result['Nama']; ?>
+                    </td>
+                    <td>
+                    <?php echo $result['Jenis_Kelamin']; ?>
+                    </td>
+                    <td>
+                    <?php echo $result['Jurusan']; ?>
+                    </td>
+                    <td>
+                    <?php echo $result['Kelas']; ?>
+                    </td>
+                    <td>
+                    <?php echo $result['Kemampuan']; ?>
+                    </td>
+                    <td>
+                        <img src="wallpaperflare.com_wallpaper (3).jpg" alt="">
+                    </td>
+                    <td class="aksi">
+                        <a href="index.php?ubah=<?php echo $result['id']; ?>" type="button" >Edit</a>
+                        <a href="proses.php?hapus=<?php echo $result['id']; ?>" style="background-color: red;">hapus</a>
+                    </td>                
+                </tr>
+            <?php
+                }
+            ?>
         </table>
     </div>
 </body>

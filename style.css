@@ -45,6 +45,7 @@ form {
 
 .form-group, .a {
     display: flex;
+    text-wrap: nowrap;
     align-items: left;
     gap: 10px;
 }
@@ -118,18 +119,23 @@ th, td {
     font-size: 1.2rem;
     font-weight: 600;
     text-align: center;
-    text-wrap: nowrap;
     border: 1px solid black;
 }
 
 th {
+    text-wrap: nowrap;
     background-color: #006483;
     color: white;
 }
 
 td{
+    text-wrap: wrap;
     width: 50px;
     height: 50px;
+}
+
+.aksi{
+    text-wrap: nowrap;
 }
 
 img {
