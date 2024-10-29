@@ -69,19 +69,19 @@
                 <label for="kemampuan">Kemampuan</label>
                 <div class="checkbox-group">
                     <div>
-                        <input type="checkbox" name="Kemampuan" value="Pemrograman" id="pemrograman">
+                        <input type="checkbox" name="Kemampuan[]" value="Pemrograman" id="pemrograman">
                         <label for="pemrograman">Pemrograman</label>
                     </div>
                     <div>
-                        <input type="checkbox" name="Kemampuan" value="Jaringan" id="jaringan">
+                        <input type="checkbox" name="Kemampuan[]" value="Jaringan" id="jaringan">
                         <label for="jaringan">Jaringan</label>
                     </div>
                     <div>
-                        <input type="checkbox" name="Kemampuan" value="Desain" id="desain">
+                        <input type="checkbox" name="Kemampuan[]" value="Desain" id="desain">
                         <label for="desain">Desain</label>
                     </div>
                     <div>
-                        <input type="checkbox" name="Kemampuan" value="Editing Video" id="editing-video">
+                        <input type="checkbox" name="Kemampuan[]" value="Editing Video" id="editing-video">
                         <label for="editing-video">Editing Video</label>
                     </div>
                 </div>

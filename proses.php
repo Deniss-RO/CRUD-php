@@ -9,9 +9,10 @@
             $jurusan = $_POST['jurusan'];
             $kelas = $_POST['Kelas'];
             $kemampuan = $_POST['Kemampuan'];
+            $allkemempuan = implode(",",$kemampuan);
             $foto = "bilek";
 
-            $query = "INSERT INTO siswa VALUES(null, '$nis', '$nama', '$janiskelamin', '$jurusan', '$kelas', '$kemampuan', '$foto')";
+            $query = "INSERT INTO siswa VALUES(null, '$nis', '$nama', '$janiskelamin', '$jurusan', '$kelas', '$allkemempuan', '$foto')";
             $sql = mysqli_query($conn, $query);
 
             if($sql){
@@ -19,6 +20,7 @@
             } else {
                 echo $query;
             }
+
         } else if($_POST['aksi'] == "edit"){
             echo "edit data <a href='index.php'>Home</a>";
         }
