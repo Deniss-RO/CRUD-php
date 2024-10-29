@@ -107,6 +107,7 @@ select {
 }
 
 table {
+    text-wrap: nowrap;
     border-collapse: collapse;
     margin: 10px auto;
     background-color: white;
@@ -123,15 +124,17 @@ th, td {
 }
 
 th {
-    text-wrap: nowrap;
     background-color: #006483;
     color: white;
 }
 
 td{
-    text-wrap: nowrap;
     width: 50px;
     height: 50px;
+}
+
+.wrap {
+    text-wrap: wrap;
 }
 
 img {

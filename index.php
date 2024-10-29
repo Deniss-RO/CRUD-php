@@ -29,7 +29,7 @@
     }
     ?>
         <hr>
-        <form method="POST" action="proses.php">
+        <form method="POST" action="proses.php" enctype="multipart/form-data">
             <div class="form-group">
                 <label for="nis">NIS</label>
                 <input type="number" name="nis" id="nis">
@@ -144,11 +144,11 @@
                     <td>
                     <?php echo $result['Kelas']; ?>
                     </td>
-                    <td>
+                    <td class="wrap">
                     <?php echo $result['Kemampuan']; ?>
                     </td>
                     <td>
-                        <img src="wallpaperflare.com_wallpaper (3).jpg" alt="">
+                        <img src="img/<?php echo $result['Foto']; ?>" alt="">
                     </td>
                     <td class="aksi">
                         <a href="index.php?ubah=<?php echo $result['id']; ?>" type="button" >Edit</a>
