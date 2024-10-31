@@ -29,40 +29,66 @@
     }
     ?>
         <hr>
+        <?php
+            $inputid = '';
+            $inputnis = '';
+            $inputnama = '';
+            $inputjeniskelamin = '';
+            $inputjurusan = '';
+            $inputkelas = '';
+            $inputkemampuan = '';
+
+            if(isset($_GET['ubah'])){
+                $inputid = $_GET['ubah'];
+                $inputquery = "SELECT * FROM siswa WHERE id = '$inputid';";
+                $inputsql = mysqli_query($conn, $inputquery);
+
+                $result = mysqli_fetch_assoc($inputsql);
+
+                $inputnis = $result['NIS'];
+                $inputnama = $result['Nama'];
+                $inputjeniskelamin = $result['Jenis_Kelamin'];
+                $inputjurusan = $result['Jurusan'];
+                $inputkelas = $result['Kelas'];
+                $inputkemampuan = $result['Kemampuan'];
+            }
+ 
+        ?>
         <form method="POST" action="proses.php" enctype="multipart/form-data">
+            <input type="hidden" value="<?php echo $inputid; ?>" name="id_siswa">
             <div class="form-group">
                 <label for="nis">NIS</label>
-                <input type="number" name="nis" id="nis">
+                <input type="number" name="nis" id="nis" value="<?php echo $inputnis; ?>">
             </div>
             <div class="form-group">
                 <label for="nama">Nama</label>
-                <input type="text" name="nama" id="nama">
+                <input type="text" name="nama" id="nama" value="<?php echo $inputnama; ?>">
             </div>
             <div class="form-group">
                 <label for="jenis-kelamin" >Jenis Kelamin</label>
                 <div class="radio-group">
-                    <input type="radio" name="jeniskelamin" value="Laki-Laki" id="laki-laki">
+                    <input type="radio" name="jeniskelamin" value="Laki-Laki" id="laki-laki" <?php if($inputjeniskelamin == 'Laki-Laki'){ echo "checked";} ?>>
                     <label for="laki-laki">Laki-Laki</label>
-                    <input type="radio" name="jeniskelamin" value="Perempuan" id="perempuan">
+                    <input type="radio" name="jeniskelamin" value="Perempuan" id="perempuan" <?php if($inputjeniskelamin == 'Perempuan'){ echo "checked";} ?>>
                     <label for="perempuan">Perempuan</label>
                 </div>
             </div>
             <div class="form-group">
                 <label for="jurusan">Jurusan</label>
                 <select name="jurusan" id="jurusan">
-                    <option value="TJKT" disabled selected>-</option>
-                    <option value="TJKT">TJKT</option>
-                    <option value="DKV">DKV</option>
-                    <option value="PPLG">PPLG</option>
+                    <option value="" disabled selected>-</option>
+                    <option <?php if($inputjurusan == 'TJKT'){ echo "selected";} ?> value="TJKT">TJKT</option>
+                    <option <?php if($inputjurusan == 'DKV'){ echo "selected";} ?> value="DKV">DKV</option>
+                    <option <?php if($inputjurusan == 'PPLG'){ echo "selected";} ?> value="PPLG">PPLG</option>
                 </select>
             </div>
             <div class="form-group">
                 <label for="Kelas">Kelas</label>
                 <select name="Kelas" id="Kelas">
-                    <option value="X">-</option>
-                    <option value="X">X</option>
-                    <option value="XI">XI</option>
-                    <option value="XII">XII</option>
+                    <option value="">-</option>
+                    <option <?php if($inputkelas == 'X'){ echo "selected";} ?> value="X">X</option>
+                    <option <?php if($inputkelas == 'XI'){ echo "selected";} ?> value="XI">XI</option>
+                    <option <?php if($inputkelas == 'XII'){ echo "selected";} ?> value="XII">XII</option>
                 </select>
             </div>
             <div class="form-group">
@@ -92,7 +118,7 @@
             </div>
             <div class="button">
                 <?php
-                    if(isset($_GET['ubah'])){
+                if(isset($_GET['ubah'])){
                 ?>
                     <button type="submit" name="aksi" value="edit">Simpan Perubahan</button>
                 <?php
