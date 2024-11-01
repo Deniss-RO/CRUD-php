@@ -27,8 +27,6 @@
             }
 
         } else if($_POST['aksi'] == "edit"){
-            echo "edit data <a href='index.php'>Home</a>";
-
             $id = $_POST['id_siswa'];
             $nis = $_POST['nis'];
             $nama = $_POST['nama'];
@@ -52,6 +50,12 @@
 
             $query = "UPDATE siswa SET NIS='$nis', Nama='$nama', Jenis_Kelamin='$janiskelamin', Jurusan='$jurusan', Kelas='$kelas', Kemampuan='$allkemempuan', Foto='$foto' WHERE id='$id';";
             $sql = mysqli_query($conn, $query); 
+
+            if($sql){
+                header("location: index.php");
+            } else {
+                echo $query;
+            }
         }
     }
 
